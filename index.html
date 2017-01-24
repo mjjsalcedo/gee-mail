@@ -6,31 +6,30 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-      for (var i = 0;  i < 10; i++) {
+      for (var i = 0; i < window.geemails.length;  i++) {
 
           	var messageDate = document.createElement("div");
           	messageDate.className = "date";
           	messageDate.innerHTML = window.geemails[i].date;
-          	emails.appendChild(messageDate);
-
-          	var messageSubject = document.createElement("div");
+          	main.appendChild(messageDate);
+          	
+		var messageSubject = document.createElement("div");
           	messageSubject.className = "subject";
           	messageSubject.innerHTML = window.geemails[i].subject;
-		messageSubject.addEventListener(“click”, toggle)
-          	emails.appendChild(messageSubject);
-
+          	messageDate.appendChild(messageSubject);
+	
 		var messageSender = document.createElement("div");
           	messageSender.className = "sender";
           	messageSender.innerHTML = window.geemails[i].sender;
-          	emailse.appendChild(messageSender);
-
-          	var messageBody = document.createElement("div");
+          	messageDate.appendChild(messageSender);
+          	
+		var messageBody = document.createElement("div");
           	messageBody.className = "body";
           	messageBody.innerHTML = window.geemails[i].body;
           	messageBody.style.display = "none";
-          	emails.appendChild(messageBody);
-   }
+          	messageDate.appendChild(messageBody);
 
+} 
 	var messageCount=0;
 		var inboxCount = document.createElement("span");
 		inboxCounter.appendChild(inboxCount);
@@ -85,17 +84,15 @@
     	} 
     	setInterval(getNewMessage, 7000);
        
-      };
+     };
     </script>
 	</head>
 	<body>
-<div id ="header">
-         <h1> Incoming GeeMail</h1>
-          </div>    
-        <div id="inbox">Inbox (<div id="inboxCount"> </div>)</div>
-	<div id="container">
-        <div id="headerDate">Date</div>
-       	<div id="headerSen">Sender</div>
-	<div id="headerSub">Subject</div>
+
+			
+    <div id="inbox">Inbox:</div>
+		<div class="container" id="main"></div>
+		
 	</body>
 </html>
+
