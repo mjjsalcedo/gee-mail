@@ -1,0 +1,40 @@
+body{
+	background-color: #debaf4;
+}
+h1{ font-family: Verdana;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	color: white;
+  background-color: black
+  
+}
+#inbox, #inboxCounter {
+	font-family: "Tahoma", "sans-serif";
+	font-size: 13px;
+	display: inline-block;
+	font-weight: bold;
+}
+.bar {
+  display: flex;
+  background-color: gray;
+  padding: 2%
+  
+  
+}
+.bar > div {
+  flex: 1;
+}
+
+.date{ padding-left: 20px;
+  border: 2px solid #0c6464;}
+.subject{ padding-left: 5px;
+  display:inline;}
+.sender{ ;
+	font-size: 22;
+	color: #006064;
+  position:relative;
+  display:inline-block;
+  padding: 5px;
+}
