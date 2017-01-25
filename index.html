@@ -7,7 +7,6 @@
     <script>
       window.onload = function(){
       for (var i = 0; i < window.geemails.length;  i++) {
-
           	var messageDate = document.createElement("div");
           	messageDate.className = "date";
           	messageDate.innerHTML = window.geemails[i].date;
@@ -28,13 +27,10 @@ var messageBody = document.createElement("div");
           	messageBody.innerHTML = window.geemails[i].body;
           	messageBody.style.display = "none";
           	messageDate.appendChild(messageBody);
-
 }
-
 function getNewEmail(){
       		var newEmails = getNewMessage();
       		window.geemails.push(newEmails);
-
           	var messageDate = document.createElement("div");
           	messageDate.className = "date";
           	messageDate.innerHTML = window.geemails[i].date;
@@ -55,24 +51,30 @@ var messageBody = document.createElement("div");
           	messageBody.innerHTML = window.geemails[i].body;
           	messageBody.style.display = "none";
           	messageDate.appendChild(messageBody); 	
-
-  var inboxNumber = document.getElementsByClassName('subject');
+  
+var inboxNumber = document.getElementsByClassName('subject');
 var inboxCount = document.getElementById("inboxCount");
   inboxCount.innerHTML = inboxNumber.length;
   x++;
 	    }
         setInterval(getNewEmail, 1000);
       
-        var inboxNumber = document.getElementsByClassName('subject');
-var inboxCount = document.getElementById("inboxCount");
-  inboxCount.innerHTML = inboxNumber.length;
      };
     </script>
   </head>
   <body>
   
-        
-    <div id="inbox">Inbox (<div id="inboxCount"> </div>)</div>
+    <h1>Gee-Mail!</h1>
+    <div id="header"></div>
+    <div id="inbox">Inbox<div id="inboxCount"></div></div>
+    <div class="bar">
+  <div>Date</div>
+  <div>Subject</div>
+  <div>Sender</div>
+</div>
     <div class="container" id="main"></div>
-  </body>
+    
+
+</body>
 </html>
+
