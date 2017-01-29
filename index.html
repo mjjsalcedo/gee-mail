@@ -27,6 +27,21 @@ var messageBody = document.createElement("div");
           	messageBody.innerHTML = window.geemails[i].body;
           	messageBody.style.display = "none";
           	messageDate.appendChild(messageBody);
+	      }
+
+var showMessage = document.getElementsByClassName("date");
+		for(var i = 0; i<showMessage.length; i++){
+  		showMessage[i].addEventListener("click", readEmail);   
+		}
+		function readEmail(){
+ 			var showBody = this.querySelectorAll(".body")[0];
+  				if (showBody.style.display === "none"){
+    				showBody.style.display = "block";
+  				}else{
+    			showBody.style.display = "none";
+
+    			}
+
 }
 function getNewEmail(){
       		var newEmails = getNewMessage();
@@ -51,14 +66,25 @@ var messageBody = document.createElement("div");
           	messageBody.innerHTML = window.geemails[i].body;
           	messageBody.style.display = "none";
           	messageDate.appendChild(messageBody); 	
-  
+
+var showMessage = document.getElementsByClassName("date");
+		for(var i = 0; i<showMessage.length; i++){
+  		showMessage[i].addEventListener("click", readEmail);   
+		}
+		function readEmail(){
+ 			var showBody = this.querySelectorAll(".body")[0];
+  				if (showBody.style.display === "none"){
+    				showBody.style.display = "block";
+  				}else{
+    			showBody.style.display = "none";
+		}
+	}
+	
 var inboxNumber = document.getElementsByClassName('subject');
 var inboxCount = document.getElementById("inboxCount");
   inboxCount.innerHTML = inboxNumber.length;
   x++;
-	    }
-        setInterval(getNewEmail, 1000);
-      
+	    }  
      };
     </script>
   </head>
