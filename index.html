@@ -27,9 +27,8 @@ var messageBody = document.createElement("div");
           	messageBody.innerHTML = window.geemails[i].body;
           	messageBody.style.display = "none";
           	messageDate.appendChild(messageBody);
-	      }
-
-var showMessage = document.getElementsByClassName("date");
+      }
+    var showMessage = document.getElementsByClassName("date");
 		for(var i = 0; i<showMessage.length; i++){
   		showMessage[i].addEventListener("click", readEmail);   
 		}
@@ -39,13 +38,12 @@ var showMessage = document.getElementsByClassName("date");
     				showBody.style.display = "block";
   				}else{
     			showBody.style.display = "none";
-
     			}
-
 }
 function getNewEmail(){
       		var newEmails = getNewMessage();
       		window.geemails.push(newEmails);
+
           	var messageDate = document.createElement("div");
           	messageDate.className = "date";
           	messageDate.innerHTML = window.geemails[i].date;
@@ -67,24 +65,27 @@ var messageBody = document.createElement("div");
           	messageBody.style.display = "none";
           	messageDate.appendChild(messageBody); 	
 
-var showMessage = document.getElementsByClassName("date");
-		for(var i = 0; i<showMessage.length; i++){
-  		showMessage[i].addEventListener("click", readEmail);   
-		}
-		function readEmail(){
+ var showMessage = document.getElementsByClassName("body");
+    		for(var j = 0; j<showMessage.length; j++){
+    		showMessage[j].addEventListener("click", readEmail);
+    		}
+        	function readEmail(){
  			var showBody = this.querySelectorAll(".body")[0];
   				if (showBody.style.display === "none"){
     				showBody.style.display = "block";
   				}else{
     			showBody.style.display = "none";
-		}
-	}
-	
+              }
+          } 
 var inboxNumber = document.getElementsByClassName('subject');
 var inboxCount = document.getElementById("inboxCount");
   inboxCount.innerHTML = inboxNumber.length;
   x++;
-	    }  
+  
+  
+	    }
+        setInterval(getNewEmail, 1000);
+      
      };
     </script>
   </head>
