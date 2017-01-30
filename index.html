@@ -1,34 +1,59 @@
 <html>
 	<head>
 <title> Gee-Mail Test</title>
-
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
-    <script>
-      window.onload = function(){
-      for (var i = 0; i < window.geemails.length;  i++) {
-          	var messageDate = document.createElement("div");
-          	messageDate.className = "date";
-          	messageDate.innerHTML = window.geemails[i].date;
-          	main.appendChild(messageDate);
+    	<script>
+     		 window.onload = function(){
+     		 for (var i = 0; i < window.geemails.length;  i++) {
+          	
+var messageDate = document.createElement("div");
+          		messageDate.className = "date";
+          		messageDate.innerHTML = window.geemails[i].date;
+          		main.appendChild(messageDate);
           	
 var messageSubject = document.createElement("div");
-          	messageSubject.className = "subject";
-          	messageSubject.innerHTML = window.geemails[i].subject;
-          	messageDate.appendChild(messageSubject);
+          		messageSubject.className = "subject";
+          		messageSubject.innerHTML = window.geemails[i].subject;
+          		messageDate.appendChild(messageSubject);
 	
 var messageSender = document.createElement("div");
-          	messageSender.className = "sender";
-          	messageSender.innerHTML = window.geemails[i].sender;
-          	messageDate.appendChild(messageSender);
+          		messageSender.className = "sender";
+          		messageSender.innerHTML = window.geemails[i].sender;
+          		messageDate.appendChild(messageSender);
           	
 var messageBody = document.createElement("div");
-          	messageBody.className = "body";
-          	messageBody.innerHTML = window.geemails[i].body;
-          	messageBody.style.display = "none";
-          	messageDate.appendChild(messageBody);
-      }
-    var showMessage = document.getElementsByClassName("date");
+          		messageBody.className = "body";
+          		messageBody.innerHTML = window.geemails[i].body;
+          		messageBody.style.display = "none";
+          		messageDate.appendChild(messageBody);
+      	}
+function getNewEmail(){
+      		var newEmails = getNewMessage();
+      		window.geemails.push(newEmails);
+
+          		var emailDate = document.createElement("div");
+          		emailDate.className = "date";
+          		emailDate.innerHTML = newEmails.date;
+          		main.appendChild(emailDate);
+          	
+var emailSender = document.createElement("div");
+          		emailSender.className = "sender";
+          		emailSender.innerHTML = newEmails.sender;
+          		emailDate.appendChild(emailSender);
+          	
+var emailSubject = document.createElement("div");
+          		emailSubject.className = "subject";
+          		emailSubject.innerHTML = newEmails.subject;
+          		emailDate.appendChild(emailSubject);
+          	
+var emailBody = document.createElement("div");
+          		emailBody.className = "body";
+          		emailBody.innerHTML = newEmails.body;
+          		emailBody.style.display = "none";
+          		emailDate.appendChild(emailBody);
+	
+var showMessage = document.getElementsByClassName("date");
 		for(var i = 0; i<showMessage.length; i++){
   		showMessage[i].addEventListener("click", readEmail);   
 		}
@@ -40,68 +65,26 @@ var messageBody = document.createElement("div");
     			showBody.style.display = "none";
     			}
 }
-function getNewEmail(){
-      		var newEmails = getNewMessage();
-      		window.geemails.push(newEmails);
-
-          	var messageDate = document.createElement("div");
-          	messageDate.className = "date";
-          	messageDate.innerHTML = window.geemails[i].date;
-          	main.appendChild(messageDate);
-          	
-var messageSubject = document.createElement("div");
-          	messageSubject.className = "subject";
-          	messageSubject.innerHTML = window.geemails[i].subject;
-          	messageDate.appendChild(messageSubject);
-	
-var messageSender = document.createElement("div");
-          	messageSender.className = "sender";
-          	messageSender.innerHTML = window.geemails[i].sender;
-          	messageDate.appendChild(messageSender);
-          	
-var messageBody = document.createElement("div");
-          	messageBody.className = "body";
-          	messageBody.innerHTML = window.geemails[i].body;
-          	messageBody.style.display = "none";
-          	messageDate.appendChild(messageBody); 	
-
- var showMessage = document.getElementsByClassName("body");
-    		for(var j = 0; j<showMessage.length; j++){
-    		showMessage[j].addEventListener("click", readEmail);
-    		}
-        	function readEmail(){
- 			var showBody = this.querySelectorAll(".body")[0];
-  				if (showBody.style.display === "none"){
-    				showBody.style.display = "block";
-  				}else{
-    			showBody.style.display = "none";
-              }
-          } 
-var inboxNumber = document.getElementsByClassName('subject');
+        		var inboxNumber = document.getElementsByClassName('subject');
 var inboxCount = document.getElementById("inboxCount");
-  inboxCount.innerHTML = inboxNumber.length;
-  x++;
-  
-  
-	    }
-        setInterval(getNewEmail, 1000);
-      
-     };
-    </script>
-  </head>
-  <body>
+ 		inboxCount.innerHTML = inboxNumber.length;
+  		x++;
+	    		}
+       		setInterval(getNewEmail, 5000);
+      		};
+</script>
+</head>
+  	<body>
   
     <h1>Gee-Mail!</h1>
     <div id="header"></div>
     <div id="inbox">Inbox<div id="inboxCount"></div></div>
     <div class="bar">
-  <div>Date</div>
-  <div>Subject</div>
-  <div>Sender</div>
+  	<div>Date</div>
+  	<div>Subject</div>
+  	<div>Sender</div>
 </div>
     <div class="container" id="main"></div>
-    
-
 </body>
 </html>
 
