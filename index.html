@@ -28,25 +28,36 @@ var messageBody = document.createElement("div");
           		messageBody.style.display = "none";
           		messageDate.appendChild(messageBody);
       	}
+           var showMessage = document.getElementsByClassName("date");
+		for(var i = 0; i<showMessage.length; i++){
+  		showMessage[i].addEventListener("click", readEmail);   
+		}
+		function readEmail(){
+ 			var showBody = this.querySelectorAll(".body")[0];
+  				if (showBody.style.display === "none"){
+    				showBody.style.display = "block";
+  				}else{
+    			showBody.style.display = "none";
+    			}
+}
 function getNewEmail(){
       		var newEmails = getNewMessage();
       		window.geemails.push(newEmails);
-
           		var emailDate = document.createElement("div");
           		emailDate.className = "date";
           		emailDate.innerHTML = newEmails.date;
           		main.appendChild(emailDate);
-          	
+
+var emailSubject = document.createElement("div");
+          		emailSubject.className = "subject";
+          		emailSubject.innerHTML = newEmails.subject;
+          		emailDate.appendChild(emailSubject);     
+     	
 var emailSender = document.createElement("div");
           		emailSender.className = "sender";
           		emailSender.innerHTML = newEmails.sender;
           		emailDate.appendChild(emailSender);
-          	
-var emailSubject = document.createElement("div");
-          		emailSubject.className = "subject";
-          		emailSubject.innerHTML = newEmails.subject;
-          		emailDate.appendChild(emailSubject);
-          	
+          	          	
 var emailBody = document.createElement("div");
           		emailBody.className = "body";
           		emailBody.innerHTML = newEmails.body;
@@ -87,4 +98,3 @@ var inboxCount = document.getElementById("inboxCount");
     <div class="container" id="main"></div>
 </body>
 </html>
-
